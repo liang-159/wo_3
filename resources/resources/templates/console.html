@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,IE=IE9" >
+    <title>Title</title>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
+    <!--加载meta IE兼容文件-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="layui-container" style="width: 100%;height: 100%;">
+    <div class="" style="margin-top: 20px;text-align: center">
+        <div style="color: white; text-align: center"><h1>森格智慧水务管理平台</h1> <a href="dashboard.html" style="margin-right: 20px;text-align: center">心圩江下游</a>
+            <a href="http://119.23.57.105:8080/">博白水务</a></div>
+    </div>
+    <div class="layui-row row-1">
+        <!-- 左侧总布局 START-->
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+            <div class="layui-row">
+                <!-- 左上-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <div id="main1" style="width: 100%; height: 300px;">main1</div>
+                </div>
+                <!-- 左中-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <div class="layui-row">
+                        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                            <div id="main2" style="width: 100%; height: 300px;"> main2</div>
+                        </div>
+                        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                            <div id="main3" style="width: 100%; height: 300px;"> main3</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 左下-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" >
+                    <p style="color: white">报警信息</p>
+                    <div class="layui-row">
+                        <p style="color: white">NO.1 设备运行故障</p>
+                        <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                            <div class="layui-progress-bar" lay-percent="95%"></div>
+                        </div>
+                        <p style="color: white">NO.1 数据越界/超限数量</p>
+                        <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                            <div class="layui-progress-bar" lay-percent="93%"></div>
+                        </div>
+                        <p style="color: white">NO.1 设备告警数量</p>
+                        <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                            <div class="layui-progress-bar" lay-percent="98%"></div>
+                        </div>
+                        <p style="color: white">NO.1 设备通讯异常数据量</p>
+                        <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                            <div class="layui-progress-bar" lay-percent="100%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--左侧总布局 END-->
+        <!-- 中间总布局 START-->
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+            <div class="layui-row">
+                <!-- 中上-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <div id="main4" style="width: 100%; height: 300px;">main4</div>
+                </div>
+                <!-- 中中-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                            <div id="main5" style="width: 100%; height: 300px;margin-bottom: 30px"> main5</div>
+                </div>
+                <!-- 中下-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" >
+                    <div id="main6" style="width: 100%; height: 300px;"> main6</div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 中间总布局 END-->
+        <!--右上总布局START-->
+        <div class="layui-col-xs4 layui-col-sm12 layui-col-md3">
+            <div class="layui-row">
+                <!-- 中上-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <div id="main7" style="width: 100%; height: 300px;">main7</div>
+                </div>
+                <!-- 中中-->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+                    <div id="main8" style="width: 100%; height: 500px;"> main8</div>
+                </div>
+                <!-- 中下-->
+<!--                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" >-->
+<!--                    <div id="main9" style="width: 100%; height: 300px;"> main6</div>-->
+<!--                </div>-->
+            </div>
+        </div>
+        <!--右上总布局END-->
+
+    </div>
+</div>
+
+
+<style>
+ html,body{
+     height: 100vh;
+ }
+</style>
+<script>
+    $('body').css({"background-color":"#031845"})
+    document.documentElement.style.overflow='hidden';
+
+    setInterval(function (obj) {
+    // $('body').css({'height':document.body.clientHeight })
+        var bheiht= $('body').height();
+        $('.layui-container').css({'height':bheiht})
+        var cheight = $('.layui-container').height();
+        $('.row-1').css({'height':cheight})
+        $('#main1').css({'height':cheight/3})
+        $('#main2').css({'height':cheight/3})
+        $('#main3').css({'height':cheight/3})
+        $('#main4').css({'height':cheight/3})
+        $('#main5').css({'height':cheight/4})
+        // $('#main6').css({'height':cheight/3})
+        $('#main7').css({'height':cheight/3})
+        $('#main8').css({'height':$('#main5').height()+$('#main6')})
+        // console.log($('.row-1').height())
+    },1000)
+
+
+</script>
+<script type="text/javascript">
+    //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
+    layui.use(['element'], function(){
+        var element = layui.element;
+    });
+
+
+    // var giftImageUrl = "data:image/png;base64,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";
+
+    // console.log(giftImageUrl)
+    var seriesData = [{
+        name: "消毒水",
+        value: "40000"
+    }, {
+        name: "鼓风机电耗",
+        value: "40000"
+    }, {
+        name: "三氧化铁",
+        value: "53000"
+    }, {
+        name: "提升泵电耗",
+        value: "40000"
+    }, {
+        name: "石灰",
+        value: "60000"
+    }];
+    var legendData = ["消毒水", "鼓风机电耗", "三氧化铁", "提升泵电耗", "石灰"]
+    var colorList = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A'];
+    var option1 = {
+
+        title: {
+            text: '全场能耗/药耗',
+            x: 'left',
+            y: 'top',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            borderColor: 'rgba(255,255,255,.3)',
+            backgroundColor: 'rgba(13,5,30,.6)',
+            borderWidth: 1,
+            padding: 5,
+            formatter: function(parms) {
+                var str = parms.marker + "" + parms.data.name + "</br>" +
+                    "数量：" + parms.data.value + "</br>" +
+                    "占比：" + parms.percent + "%";
+                return str;
+            }
+        },
+        legend: {
+            type: "scroll",
+            orient: 'horizontal',
+            left: 'center',
+            align: 'auto',
+
+            // x: 'center',
+            y: 'bottom',
+            textStyle: {
+                color: '#fff',
+
+            },
+            data: legendData
+        },
+        series: [{
+            type: 'pie',
+            center: ['50%', '50%'],
+            radius: ['25%', '45%'],
+            clockwise: true,
+            avoidLabelOverlap: true,
+            hoverOffset: 15,
+            itemStyle: {
+                normal: {
+                    color: function(params) {
+                        return colorList[params.dataIndex]
+                    }
+                }
+            },
+            label: {
+                show: true,
+                position: 'outside',
+                formatter: '{a|{b}：{d}%}\n{hr|}',
+                rich: {
+                    hr: {
+                        backgroundColor: 't',
+                        borderRadius: 3,
+                        width: 3,
+                        height: 3,
+                        padding: [3, 3, 0, -12]
+                    },
+                    a: {
+                        padding: [-30, 15, -20, 15]
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    length: 20,
+                    length2: 30,
+                    lineStyle: {
+                        width: 1
+                    }
+                }
+            },
+            data: seriesData
+        }]
+    };
+    var option2 = {
+        title: [{
+            text: '98%',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                fontWeight: 'normal',
+                color: '#0580f2',
+                fontSize: '20'
+            }
+        },{
+            text: '实施设备利用率',
+            x: 'left',
+            y: 'top',
+            textStyle: {
+                color: '#fff'
+            }
+        }],
+        color: ['rgba(176, 212, 251, 1)'],
+        legend: {
+            show: true,
+            itemGap: 12,
+            // data: ['01', '02']
+        },
+
+        series: [{
+            name: 'Line 1',
+            type: 'pie',
+            clockWise: true,
+            radius: ['50%', '66%'],
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            },
+            hoverAnimation: false,
+            data: [{
+                value: 98,
+                // name: '01',
+                itemStyle: {
+                    normal: {
+                        color: { // 完成的圆环的颜色
+                            colorStops: [{
+                                offset: 0,
+                                color: '#00cefc' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#367bec' // 100% 处的颜色
+                            }]
+                        },
+                        label: {
+                            show: false
+                        },
+                        labelLine: {
+                            show: false
+                        }
+                    }
+                }
+            }, {
+                // name: '02',
+                value: 20
+            }]
+        }]
+    }
+    var option3 = {
+        title: {
+            text: '80%',
+            x: 'center',
+            y: 'center',
+            textStyle: {
+                fontWeight: 'normal',
+                color: '#0580f2',
+                fontSize: '20'
+            }
+        },
+        color: ['rgba(176, 212, 251, 1)'],
+        legend: {
+            show: true,
+            itemGap: 12,
+            // data: ['01', '02']
+        },
+
+        series: [{
+            name: 'Line 1',
+            type: 'pie',
+            clockWise: true,
+            radius: ['50%', '66%'],
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            },
+            hoverAnimation: true,
+            data: [{
+                value: 80,
+                // name: '01',
+                itemStyle: {
+                    normal: {
+                        color: { // 完成的圆环的颜色
+                            colorStops: [{
+                                offset: 0,
+                                color: '#00cefc' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#367bec' // 100% 处的颜色
+                            }]
+                        },
+                        label: {
+                            show: false
+                        },
+                        labelLine: {
+                            show: false
+                        }
+                    }
+                }
+            }, {
+                // name: '02',
+                value: 20
+            }]
+        }]
+    }
+    var dataStyle = {
+        normal: {
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            shadowBlur: 0,
+            shadowColor: '#203665'
+        }
+    };
+    var option4 = {
+        // backgroundColor: "#20263f",
+
+        series: [{
+            name: '第一个圆环',
+            type: 'pie',
+            clockWise: false,
+            radius: [70, 80],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['15%', '50%'],
+            data: [{
+                value: 98,
+                label: {
+                    normal: {
+                        rich: {
+                            a: {
+                                color: '#3a7ad5',
+                                align: 'center',
+                                fontSize: 20,
+                                fontWeight: "bold"
+                            },
+                            b: {
+                                color: '#fff',
+                                align: 'center',
+                                fontSize: 16
+                            }
+                        },
+                        formatter: function(params){
+                            return "{b|程控率}\n\n"+"{a|"+params.value+"%}"+"\n";
+                        },
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '14',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#2c6cc4',
+                        shadowColor: '#2c6cc4',
+                        shadowBlur: 0
+                    }
+                }
+            }, {
+                value: 95,
+                name: 'invisible',
+                itemStyle: {
+                    normal: {
+                        color: '#24375c'
+                    },
+                    emphasis: {
+                        color: '#24375c'
+                    }
+                }
+            }]
+        }, {
+            name: '第二个圆环',
+            type: 'pie',
+            clockWise: false,
+            radius: [70, 80],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['50%', '50%'],
+            data: [{
+                value: 99,
+                label: {
+                    normal: {
+                        rich: {
+                            a: {
+                                color: '#d03e93',
+                                align: 'center',
+                                fontSize: 20,
+                                fontWeight: "bold"
+                            },
+                            b: {
+                                color: '#fff',
+                                align: 'center',
+                                fontSize: 16
+                            }
+                        },
+                        formatter: function(params){
+                            return "{b|闭环连续运转率}\n\n"+"{a|"+params.value+"%}"+"\n";
+                        },
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '14',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#ef45ac',
+                        shadowColor: '#ef45ac',
+                        shadowBlur: 0
+                    }
+                }
+            }, {
+                value: 96,
+                name: 'invisible',
+                itemStyle: {
+                    normal: {
+                        color: '#412a4e'
+                    },
+                    emphasis: {
+                        color: '#412a4e'
+                    }
+                }
+            }]
+        }, {
+            name: '第三个圆环',
+            type: 'pie',
+            clockWise: false,
+            radius: [70, 80],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['85%', '50%'],
+            data: [{
+                value: 96,
+                label: {
+                    normal: {
+                        rich: {
+                            a: {
+                                color: '#603dd0',
+                                align: 'center',
+                                fontSize: 20,
+                                fontWeight: "bold"
+                            },
+                            b: {
+                                color: '#fff',
+                                align: 'center',
+                                fontSize: 16
+                            }
+                        },
+                        formatter: function(params){
+                            return "{b|安全运行达标率}\n\n"+"{a|"+params.value+"%}"+"\n";
+                        },
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '14',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#613fd1',
+                        shadowColor: '#613fd1',
+                        shadowBlur: 0
+                    }
+                }
+            }, {
+                value: 25,
+                name: 'invisible',
+                itemStyle: {
+                    normal: {
+                        color: '#453284'
+                    },
+                    emphasis: {
+                        color: '#453284'
+                    }
+                }
+            }]
+        }]
+    }
+
+    var charts = {
+        unit: '单位',
+        names: ['出水', '入水'],
+        lineX: ['2018-11-11 17:01', '2018-11-11 17:02', '2018-11-11 17:03', '2018-11-11 17:04', '2018-11-11 17:05', '2018-11-11 17:06', '2018-11-11 17:07', '2018-11-11 17:08', '2018-11-11 17:09', '2018-11-11 17:10', '2018-11-11 17:11', '2018-11-11 17:12', '2018-11-11 17:13', '2018-11-11 17:14', '2018-11-11 17:15', '2018-11-11 17:16', '2018-11-11 17:17', '2018-11-11 17:18', '2018-11-11 17:19', '2018-11-11 17:20'],
+        value: [
+            [451, 352, 303, 534, 95, 236, 217, 328, 159, 151, 231, 192, 453, 524, 165, 236, 527, 328, 129, 530],
+            [360, 545, 80, 192, 330, 580, 192, 80, 250, 453, 352, 28, 625, 345, 65, 325, 468, 108, 253, 98]
+        ]
+
+    }
+    var color = ['rgba(23, 255, 243', 'rgba(255,100,97']
+    var lineY = []
+
+    for (var i = 0; i < charts.names.length; i++) {
+        var x = i
+        if (x > color.length - 1) {
+            x = color.length - 1
+        }
+        var data = {
+            name: charts.names[i],
+            type: 'line',
+            color: color[x] + ')',
+            smooth: true,
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: color[x] + ', 0.3)'
+                    }, {
+                        offset: 0.8,
+                        color: color[x] + ', 0)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    shadowBlur: 10
+                }
+            },
+            symbol: 'circle',
+            symbolSize: 5,
+            data: charts.value[i]
+        }
+        lineY.push(data)
+    }
+
+    lineY[0].markLine = {
+        silent: true,
+        data: [{
+            yAxis: 5
+        }, {
+            yAxis: 100
+        }, {
+            yAxis: 200
+        }, {
+            yAxis: 300
+        }, {
+            yAxis: 400
+        }]
+    }
+    var option5 = {
+        // backgroundColor:'#1b2735',
+        title: {
+            text: '进出水流量分析',
+            x: 'center',
+            y: 'top',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: charts.names,
+            textStyle: {
+                fontSize: 12,
+                color: 'rgb(0,253,255,0.6)'
+            },
+            right: '4%'
+        },
+        grid: {
+            top: '14%',
+            left: '4%',
+            right: '4%',
+            bottom: '12%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: charts.lineX,
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(0,253,255,0.6)'
+                },
+                formatter: function(params) {
+                    return params.split(' ')[0] + '\n' + params.split(' ')[1]
+                }
+            }
+        },
+        yAxis: {
+            name: charts.unit,
+            type: 'value',
+            axisLabel: {
+                formatter: '{value}',
+                textStyle: {
+                    color: 'rgb(0,253,255,0.6)'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgb(23,255,243,0.3)'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'rgb(0,253,255,0.6)'
+                }
+            }
+        },
+        series: lineY
+    }
+    setInterval(function() {
+        myChart.setOption({
+            legend: {
+                selected: {
+                    '出水': false,
+                    '入水': false
+                }
+            }
+        })
+        myChart.setOption({
+            legend: {
+                selected: {
+                    '出水': true,
+                    '入水': true
+                }
+            }
+        })
+    },10000)
+
+    var option6 = {
+        // backgroundColor: '#013954',
+        title: {
+            text: '环境效益',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '<br/>{b} : {c} ({d}%)'
+        },
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        legend: {
+            orient: 'vertical',
+            left: 20,
+            top: 20,
+            data: ['当量COD消减量', 'COD消减量', '氨氮量', '总量消减量', '总磷消减量'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '50%'],
+            data: [{
+                value: 210,
+                name: '当量COD消减量'
+            },
+                {
+                    value: 235,
+                    name: 'COD消减量'
+                },
+                {
+                    value: 274,
+                    name: '氨氮量'
+                },
+                {
+                    value: 310,
+                    name: '总量消减量'
+                },
+                {
+                    value: 435,
+                    name: '总磷消减量'
+                }
+            ],
+            roseType: 'radius',
+            label: {
+                color: '#fff'
+            },
+            labelLine: {
+                lineStyle: {
+                    color: '#888'
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: function(params) {
+                        var colorList = ['#ffff99', '#00ffcc', '#00ff99', '#33ccff', '#388df6'];
+                        return colorList[params.dataIndex % colorList.length];
+                    }
+                }
+            },
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function(idx) {
+                return Math.random() * 200;
+            }
+        }]
+    };
+    var option7 = {
+        // backgroundColor: "#0f375f",
+        legend: {
+            data: ["进水指标", "出水指标"],
+            top: "5%",
+            right: '10',
+            textStyle: {
+                color: "rgba(250,250,250,0.6)",
+                fontSize: 16
+            }
+        },
+        barWidth: 15,
+        xAxis: {
+            type: 'value',
+            splitLine: {
+                lineStyle: {
+                    color: "rgba(255,255,255,0.2)"
+                }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: { //  改变x轴颜色
+                lineStyle: {
+                    color: '#26D9FF'
+                }
+            },
+            axisLabel: { //  改变x轴字体颜色和大小
+                textStyle: {
+                    color: "rgba(250,250,250,0.6)",
+                    fontSize: 16
+                }
+            }
+        },
+        yAxis: {
+            type: 'category',
+            data: ['COD', 'PH', '水温', 'TP'],
+            splitLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: { //  改变y轴颜色
+                lineStyle: {
+                    color: '#26D9FF'
+                }
+            },
+            axisLabel: { //  改变y轴字体颜色和大小
+                //formatter: '{value} m³ ', //  给y轴添加单位
+                textStyle: {
+                    color: "rgba(250,250,250,0.6)",
+                    fontSize: 16
+                }
+            }
+        },
+        series: [{
+            type: 'bar',
+            name: "出水指标",
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true, //开启显示
+                        position: 'right', //在上方显示
+                        textStyle: { //数值样式
+                            color: "rgba(250,250,250,0.6)",
+                            fontSize: 16,
+                            fontWeight: 600
+                        }
+                    },
+                    color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: 'rgba(61,126,235,1)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(61,126,235,0)'
+                    }]),
+                    borderColor: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: 'rgba(160,196,225,1)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(61,126,235,1)'
+                    }]),
+                    borderWidth: 2
+                }
+            },
+            data: [19, 29, 39, 81]
+        },
+            {
+                type: 'bar',
+                name: "进水指标",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true, //开启显示
+                            position: 'right', //在上方显示
+                            textStyle: { //数值样式
+                                color: "rgba(250,250,250,0.6)",
+                                fontSize: 16,
+                                fontWeight: 600
+                            }
+                        },
+                        color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                            offset: 0,
+                            color: 'rgba(15,197,243,1)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(15,197,243,0)'
+                        }]),
+                        borderColor: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                            offset: 0,
+                            color: 'rgba(180,240,255,1)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(15,197,243,1)'
+                        }]),
+                        borderWidth: 2
+                    }
+                },
+                data: [12, 23, 35, 100]
+            }
+        ]
+    };
+    var option8 = {
+        color: ['#3398DB'],
+        title: {
+            text: '水质泥质达标率',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow',
+                formatter: '<br/>{b} : {c} ({d}%)'
+// 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['COD', '总磷', '总氮', '污泥含水率', '污泥PH值'],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '直接访问',
+                type: 'bar',
+                barWidth: '60%',
+                data: [150, 182, 200, 230, 210, 188, 195]
+            }
+        ]
+    };
+
+
+
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    var myChart3 = echarts.init(document.getElementById('main3'));
+    var myChart4 = echarts.init(document.getElementById('main4'));
+    var myChart5 = echarts.init(document.getElementById('main5'));
+    var myChart6 = echarts.init(document.getElementById('main6'));
+    var myChart7 = echarts.init(document.getElementById('main7'));
+    var myChart8 = echarts.init(document.getElementById('main8'));
+
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+    myChart3.setOption(option3);
+    myChart4.setOption(option4);
+    myChart5.setOption(option5);
+    myChart6.setOption(option6);
+    myChart7.setOption(option7);
+    myChart8.setOption(option8);
+
+    window.addEventListener("resize", function() {
+        this.myChart1.resize();
+        this.myChart2.resize();
+        this.myChart3.resize();
+        this.myChart4.resize();
+        this.myChart5.resize();
+        this.myChart6.resize();
+        this.myChart7.resize();
+        this.myChart8.resize();
+    })
+</script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

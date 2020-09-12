@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name=renderer content=webkit>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!--  <meta http-equiv="X-UA-Compatible" content="" />-->
+  <title>森格后台布局</title>
+  <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+  <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+  <!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header layui-bg-cyan header_box">
+      <div class="layui-container" style="width: 100%;">
+        <div class="layui-row">
+          <div class="layui-col-xs4 layui-col-sm4 layui-col-md3">
+            <div class="grid-demo grid-demo-bg1"><h3>广西南宁北投心圩江<br />环境治理有限公司</h3></div>
+          </div>
+          <div class="layui-col-xs4 layui-col-sm4 layui-col-md6">
+            <div class="grid-demo grid-demo-bg1" style="margin-top: 15px; text-align: center"><h1>南宁心圩江下游污水厂集控系统</h1></div>
+          </div>
+          <div class="layui-col-xs4 layui-col-sm4 layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid-custom"><h3>广西森格自动化科技<br />股份有限公司</h3></div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <!-- <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="">控制台</a></li>
+        <li class="layui-nav-item"><a href="">商品管理</a></li>
+        <li class="layui-nav-item"><a href="">用户</a></li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">其它系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">邮件管理</a></dd>
+            <dd><a href="">消息管理</a></dd>
+            <dd><a href="">授权管理</a></dd>
+          </dl>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            贤心
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="">基本资料</a></dd>
+            <dd><a href="">安全设置</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">退了</a></li>
+      </ul> -->
+    </div>
+ 
+    
+    <div class="layui-side layui-bg-black">
+      
+      
+      <div class="layui-side-scroll">
+        <div class="fuck"> 
+          <div id="currentDay">日期:</div>
+          <div id="currenTime">时间:</div>
+          <div id="currentWeek">星期:</div>
+          <div id="currentUser">用户:</div>
+        </div>
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">工艺图</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;">全场工艺总图</a></dd>
+              <dd><a href="javascript:;">粗格栅及调蓄池</a></dd>
+              <dd><a href="javascript:;">细格栅及曝气沉砂池</a></dd>
+              <dd><a href="javascript:;">生化池</a></dd>
+              <dd><a href="javascript:;">鼓风机房</a></dd>
+              <dd><a href="javascript:;">二沉池</a></dd>
+              <dd><a href="javascript:;">加药间</a></dd>
+              <dd><a href="javascript:;">脱水间</a></dd>
+              <dd><a href="javascript:;">中途提升泵房</a></dd>
+              <dd><a href="javascript:;">加砂高速沉淀池</a></dd>
+              <dd><a href="javascript:;">消毒、排放工艺段</a></dd>
+              <dd><a href="javascript:;">通风系统</a></dd>
+              <dd><a href="javascript:;">除臭系统</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">报表系统</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;">实时数据报表</a></dd>
+              <dd><a href="javascript:;">历史数据报表</a></dd>
+              <dd><a href="javascript:;">实时报警报表</a></dd>
+              <dd><a href="javascript:;">历史报警报表</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">趋势曲线</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;">实时趋势曲线</a></dd>
+              <dd><a href="javascript:;">历史趋势曲线</a></dd>
+              <dd><a href="javascript:;">XY曲线</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">系统安全</a>
+            <dl class="layui-nav-child">
+              <!-- <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd> -->
+            </dl>
+          </li>
+          <!-- <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">发布商品</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li>
+          <li class="layui-nav-item"><a href="javascript:;">保留菜单</a></li> -->
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="layui-body" style="bottom: 0px;">
+      
+      <!-- 内容主体区域 -->
+      <!-- <div class="custom" style="padding: 15px;">内容主体区域 </div> -->
+      <div class="iframe">
+        <img src="../img/全场工艺总图.png" />
+      </div>
+    </div>
+
+    <!-- <div class="layui-footer"> -->
+    <!-- 底部固定区域 -->
+    <!-- © gxsenge.net - 底部固定区域 -->
+    <!-- </div> -->
+  </div>
+</body>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+  <script>
+    layui.use(['element'],function () {
+      var element = layui.element;
+    })
+  </script>
+  <style>
+    .iframe {
+      border-width: 0px;
+      vertical-align: top;
+      /* background-color: red; */
+      width: 100%;
+      /* height: calc(100% - 50px); */
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .grid-demo-bg1 {
+      background-color: #2F4056;
+    }
+
+    .grid-demo {
+      height: 40px;
+      /* padding: 15px; */
+      line-height: 30px;
+      text-align: left;
+      background-color: #2F4056;
+      color: #fff;
+      font-family: 宋体;
+      font-size: 20px;
+      
+    }
+    .grid-custom{
+      text-align: right;
+
+    }
+    .fuck{
+    padding: 15px;
+    }
+
+  </style>
+  <script src="js/flushTime.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+  
+    $('.layui-nav-item a').each(function () {
+      let ts = $(this);
+      ts.click(function () {
+        $('.iframe img').attr('src', "../img/" + ts.text() + ".png");
+        $('.custom').text((ts).text());
+        console.log($('.custom').text())
+      });
+    });
+
+  </script>
+<script src="/js/custom.js"></script>
+</html>

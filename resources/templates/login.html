@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--加载meta IE兼容文件-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+<body class="layui-layout-login" >
+<div class="login-bg">
+    <div class="cover"></div>
+    <div class="cover1" style=" height: 30%;"></div>
+</div>
+<div class="login-content">
+    <h1 class="login-box-title"><i class="fa fa-fw fa-user"></i>登录</h1>
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-username" for="username"></label>
+            <input class="layui-input" id="username" name="username" placeholder="用户名" type="text">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-password" for="password"></label>
+            <input class="layui-input" id="password" name="password" placeholder="密码" type="password">
+        </div>
+        <!--        <div class="layui-form-item captcha-item">-->
+        <!--            <label class="layui-icon layui-icon-vercode"></label>-->
+        <!--            <input class="layui-input" type="text" name="captcha" autocomplete="off" placeholder="验证码">-->
+        <!--            <img class="captcha-img" />-->
+        <!--        </div>-->
+        <div class="layui-form-item">
+            <input lay-skin="primary" name="rememberMe" title="记住我" type="checkbox"/>
+            <a class="layui-layout-right forget-password" href="javascript:alert('请联系超级管理员！')">忘记密码?</a>
+        </div>
+
+        <button class="layui-btn layui-btn-fluid" lay-filter="formTest" lay-submit type="button"><i
+                class="fa fa-sign-in fa-lg fa-fw"></i> 登录
+        </button>
+    </form>
+    <div class="layui-layer-loading login-page-loading">
+        <div class="layui-layer-content"></div>
+    </div>
+</div>
+</body>
+
+<style>
+    .layui-layout-login .login-bg {
+        background-color: #e7e7e7;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .layui-layout-login .login-bg .cover {
+        background-color: #009688;
+        height: 70%;
+        background-image: linear-gradient(#009688, #e7e7e7);
+    }
+
+    .layui-layout-login .login-content {
+        opacity:0.8;
+        width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        padding: 40px;
+        padding-top: 32px;
+        -webkit-box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.15);
+       
+    }
+
+    .layui-layout-login .login-content.captcha {
+        width: 300px;
+        padding-bottom: 38px;
+    }
+
+    .layui-layout-login .login-content.captcha .captcha-item .layui-icon {
+        font-size: 16px;
+    }
+
+    .layui-layout-login .login-content.captcha .captcha-item .layui-input {
+        float: left;
+        width: 180px;
+    }
+
+    .layui-layout-login .login-content.captcha .captcha-item .captcha-img {
+        float: right;
+        height: 38px;
+        cursor: pointer;
+    }
+
+    .layui-layout-login .login-box-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #444444;
+    }
+
+    .layui-layout-login .layui-form-item {
+        position: relative;
+        margin-bottom: 20px;
+        min-height: 18px;
+    }
+
+    .layui-layout-login .layui-form-item label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+        width: 38px;
+        line-height: 38px;
+        text-align: center;
+        color: #999999;
+    }
+
+    .layui-layout-login .layui-form-item input[type=text],
+    .layui-layout-login .layui-form-item input[type=password] {
+        padding-left: 36px;
+        border: 1px solid #ddd;
+        transition: all 0s;
+        -webkit-transition: all 0s;
+    }
+
+    .layui-layout-login .layui-form-item .layui-form-checkbox {
+        margin-top: 0;
+    }
+
+    .layui-layout-login .layui-form-item .layui-form-checkbox .layui-icon {
+        width: 14px;
+        height: 14px;
+        top: 1px;
+        line-height: 14px;
+    }
+
+    .layui-layout-login .layui-form-item .layui-form-checkbox[lay-skin=primary]:hover i {
+        border-color: #009688;
+    }
+
+    .layui-layout-login .layui-form-item .layui-form-checked[lay-skin=primary] i {
+        border-color: #009688;
+        background-color: #009688;
+    }
+
+    .layui-layout-login .layui-form-item .forget-password {
+        color: #009688;
+    }
+
+    .layui-layout-login .login-page-loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 !important;
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+</style>
+<script>
+    if (window.top !== window.self) {
+        window.top.location = window.location
+    }
+
+    layui.use(['element', 'form', 'jquery', 'layer'], function () {
+        var $ = layui.jquery;
+        element = layui.element,
+        form = layui.form;
+        layer = layui.layer;
+        layer.msg('测试账号:gxsg' + '测试密码:gxsg')
+        form.on('submit(formTest)', function (data) {
+            $.ajax({
+                url: "/authlogin",
+                async: true,
+                type: "POST",
+                dataType: "json",
+                data: $('form').serialize(),
+                success: function (data) {
+                    data == true ? $(location).attr('href', "/dashboard") : alert(data);
+                },
+                error: function (data) {
+                    alert($('form').serialize())
+                }
+            })
+        })
+        $('.layui-layer-loading').hide();
+    });
+
+
+    window.onload = function () {
+            let cookie = document.cookie;
+            let element = cookie.split(";");
+            for (let i = 0; i < element.length; i++) {
+                let elementMap = element[i].split("=");
+                console.log(elementMap)
+                if ("access_token" == elementMap[0].trim()){
+                    alert("您已登录，请勿重复登录.正在为您转到首页")
+                    window.location.href="/dashboard"
+                }
+            }
+    }
+</script>
+</html>

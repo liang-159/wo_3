@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+    <!--加载meta IE兼容文件-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="layui-container">  
+        常规布局（以中型屏幕桌面为例）：
+        <div class="layui-row">
+            <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <table id="test"></table>
+            </div>
+              <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <table id="test2"></table>
+            </div>
+              <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                移动：4/12 | 平板：12/12 | 桌面：4/12
+              </div>
+              
+        </div>
+        </div>
+
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+    <script>
+        layui.use('table', function () {
+            var table = layui.table;
+
+            table.render({
+                elem: '#test'
+                , url: '/demo/table/user/'
+                , cellMinWidth: 60 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                , cellMaxWidth: 60
+                // , width: 350
+                , cols: [[
+                    { field: 'id', title: '时间', align: 'center' }
+                    , { field: 'username', title: '进水', align: 'center' } //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                    , { field: 'sex', title: '流量', align: 'center' }
+                    , { field: 'city', title: 'COD', align: 'center' }
+                    , { field: 'sign', title: '氨氮', align: 'center' }
+                ]]
+            });
+            table.render({
+                elem: '#test2'
+                , url: '/demo/table/user/'
+                , cellMinWidth: 60 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                , cellMaxWidth: 60
+                , cols: [[
+                    { field: 'id', title: '时间', align: 'center' }
+                    , { field: 'username', title: '进水', align: 'center' } //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                    , { field: 'sex', title: '流量', align: 'center' }
+                    , { field: 'city', title: 'COD', align: 'center' }
+                    , { field: 'sign', title: '氨氮', align: 'center' }
+                ]]
+            });
+        });
+        table.resize("test")
+        table.resize("test2")
+    </script>
+<style>
+    #table1 {
+    position: absolute;
+    left: 2px;
+    top: 35px;
+    height: 30px;
+    overflow-y: visible;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #c0c0c0;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    border-spacing: 2px;
+    border-color: grey;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+#th_js {
+    background-color: rgb(0, 153, 204);
+    color: rgb(255, 255, 255);
+    font: bold 16px ΢���ź�;
+}
+
+th {
+    background-color: rgb(0, 153, 204);
+    color: rgb(255, 255, 255);
+    font: bold 12px ΢���ź�;
+}
+th, td {
+    border: 1px solid #d0d0d0;
+    color: #404060;
+    padding: 6px;
+}
+</style>
+</body>
+
+</html>
